@@ -1,0 +1,20 @@
+<------------------------------------------------------  CAPSTONE PROJECT REPORT ------------------------------------------------------>
+
+
+PROBLEM DESCRIPTION
+The problem I chose to implement was to allow a random user to rate already visited places in a predetermined dataset, and using machine learning algorithms recommend to him some other places that might interest him in visiting them.
+The recommended places will be extracted by the similarity between the rated by him places, and all the other available options from the dataset.
+This idea could be applied in a real world application which suggests places to visit mainly abroad, based on the individual's preferences.
+The main steps to achieve the previous idea are the following:
+	1. Find or create the appropriate dataset with the desired places
+	2. Use the Foursquare API to acquire data for venues around each of our locations
+	3. Explore the acquired data and arrange them in a suitable form for further analysis
+	4. Rate some of the available neighborhoods 
+	5. Create the user's profile, which includes his preferences on each category of the venues
+	6. Find neighborhoods he would possibly like, and suggest some of them to him
+
+DATA DESCRIPTION 
+Two datasets will be used for the current problem. The first one, I decided to create it on my own and includes the exact locations of several neighborhoods in the city I am living. 
+Of course this problem is generalized to be implemented in any city, or multiple cities. The locations have been calculated using data from google maps and have been passed into a Comma - Seperated values (csv) file. 
+This csv file includes the neighborhood name, as well as the latitude and longitude of each location. 
+The second dataset, is the one acquired for each neighborhood, extracted from the foursquare database, and includes venues around each neighborhood.
