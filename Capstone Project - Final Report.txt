@@ -1,0 +1,59 @@
+<----------------------------------------------------------------------    Capstone Project - Report    ---------------------------------------------------------------------->
+
+Introduction - Background
+Data recommendation is one of the foremost fields in machine learning algorithms and is used in plenty of applications today, with the 
+most known being in advertising, movies, music and videos.   
+
+Introduction - Problem Presentation
+The problem I chose to implement was to let a random user rate already visited places in a predetermined dataset, and using machine
+ learning algorithms (more specifally recommender systems) suggest him other places that might interest him in visiting them.
+The recommended places will be extracted by the similarity between the rated by him places, and all the other available options from 
+the dataset.
+This idea could be applied in a real world application which suggests places to visit mainly abroad, based on each individual's preferences.
+
+Data sources
+Two datasets will be used for the current problem. 
+--> The first one, I decided to create it on my own and includes the exact locations of several neighborhoods (58 in number) in the city I 
+am living. 
+Of course this problem could be generalized to implemented in any city, or even multiple cities. The locations have been calculated using 
+data from google maps and have been passed into a Comma - Seperated values (csv) file. This csv file includes the neighborhood name, 
+as well as the latitude and longitude of each location. 
+--> The second dataset, is the one acquired for each neighborhood, extracted from the foursquare database, and includes venues around 
+each neighborhood. In total we have obtained 4191 different venues to explore for our 58 neighborhoods. There are also 285 unique 
+categories of venues.
+
+Data cleaning and Feature selection
+For the dataset with the neighborhoods, since I created it myself, it doesn't really need any changes at all.
+For the second dataset, the one acquired from the foursquare database it contains several unnecessary data. The only data required for 
+our problem is the following:
+ - Venue name
+ - Venue category
+ - Venue location (Latitude, Longitude)
+ - The neighborhood where it belongs
+
+Data Analysis and Methodology
+First of all we need to create a description of each neighborhood based on the  number of each of the 285 categories of venues it includes. 
+This profile contains the frequency of each venue category shown in the venue list.
+After that step we may input some ratings for any neighborhood we have already visited. In order to make the recommendation, we have 
+used the Content - Based technique, in which the system suggests content similar to the one you liked before. As we know the more places 
+you rate, the more accurate the system will be, since it has more information about your preferences. To create the user's profile we calculate 
+the dot product of our neighborhoods' ratings and the corresponding description matrix.
+The final step is to create a list of recommendations. To achieve that we calculate again the dot product of the vector of user's profile and the 
+matrix of the unvisited places. The result is a vector of scores, each one corresponding to the similarity of a place to the user's preferences. The 
+higher this value is, the more likely is for the user to fancy that place.
+
+Results
+In the last section of the Jupyter Notebook we indicate the top 10 recommended places in a map, by using the folium library. The higher the place 
+belongs to the recommendation list, the larger is its circle radius on the map. With red color are noted the already rated places. As we can see on 
+the map, the suggested places are widely spreaded all over the region included in our dataset. 
+
+Conclusions and Future improvements
+In this problem I explored the relationships between different neighborhoods in a city based on their venues. The most famous categories among 
+the venues were  'Cafe', 'Greek Restaurant', 'Bakery' and 'Bar'. 
+One way to upgrade our problem is to implement it using cities from multiple countries around the world. This could be used for instance on an 
+application for receiving suggestions on a travel abroad, estimated from previous experiences. In that case the initial dataset could also be enriched 
+with different kind of data, such as the climate of each city, the altitude, the population density and many more. All the above however increase the 
+demands for the required dataset.
+
+
+THANKS FOR YOUR TIME!
